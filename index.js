@@ -1,7 +1,7 @@
 import path from "path";
 
 import imagemin from "imagemin";
-import imageminJpegtran from "imagemin-jpegtran";
+import imageminMozjpeg from "imagemin-mozjpeg";
 import imageminPngquant from "imagemin-pngquant";
 
 // All valid arguments
@@ -44,7 +44,7 @@ const minifyImage = async (options) => {
         `${"build" || options.label}`
       ),
       plugins: [
-        imageminJpegtran(),
+        imageminMozjpeg({ quality: 60 }),
         imageminPngquant({
           quality: [0.6, 0.8],
         }),
